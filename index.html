@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div>
+    <div id="app">
+        <div class="container">
+            <h1 class="display-4" v-if="commandes.length > 0">Mes commandes</h1>
+            <ul>
+                <li v-for="commande in commandes">
+                    {{commande.model}}
+                    <button v-on:click="supprimer(commande.planche)">Supprimer</button>
+                </li>
+            </ul>
+            <h1 class="display-4">Mes produits disponibles</h1>
+            <div class="row">
+                <div class="col-3" v-for="produit in produits">
+                    <ul class="jumbotron">
+                        <li>Model : {{produit.model}}</li>
+                        <li>Litre : {{produit.litre}}</li>
+                    </ul>
+                    <button v-on:click="commander(produit)">Commander</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <script src="datas.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="scriptVue.js"></script>
+</body>
+</html>
